@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import ThemeToggle from "./components/ThemeToggle";
+import Navbar from "./components/Navbar";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,8 +12,6 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
-type Theme = "light" | "dark" | "system";
 
 export const metadata: Metadata = {
   title: "Portfolio - Personal Website",
@@ -38,19 +36,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth dark`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-          <nav className="container mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <div className="text-xl font-bold">Portfolio</div>
-            <div className="hidden md:flex items-center gap-8">
-              <a href="#about">About</a>
-              <a href="#projects">Projects</a>
-              <a href="#skills">Skills</a>
-              <a href="#experience">Experience</a>
-              <a href="#contact">Contact</a>
-            </div>
-            <ThemeToggle />
-          </nav>
-        </header>
+        <Navbar />
         <main className="flex-1 pt-16">{children}</main>
         <footer className="bg-muted py-8 border-t border-border">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-muted-foreground">
