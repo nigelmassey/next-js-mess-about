@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import ThemeToggle from "./components/ThemeToggle";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -11,6 +12,8 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+type Theme = "light" | "dark" | "system";
 
 export const metadata: Metadata = {
   title: "Portfolio - Personal Website",
@@ -32,7 +35,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth dark`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -45,6 +48,7 @@ export default function RootLayout({
               <a href="#experience">Experience</a>
               <a href="#contact">Contact</a>
             </div>
+            <ThemeToggle />
           </nav>
         </header>
         <main className="flex-1 pt-16">{children}</main>
