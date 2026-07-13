@@ -64,7 +64,7 @@ export default function ThemeToggle({ onToggle }: ThemeToggleProps) {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-full hover:bg-muted transition-colors"
+      className="p-2 rounded-full hover:bg-muted transition-colors w-24 flex items-center justify-center"
       aria-label="Toggle theme"
     >
       <span className="text-sm font-medium">{getThemeLabel()}</span>
